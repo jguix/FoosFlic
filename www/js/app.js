@@ -29,13 +29,31 @@ angular.module('ionicApp', ['ionic'])
     .state('app', {
       url: "/app",
       abstract: true,
-      templateUrl: "app.html"
+      templateUrl: "templates/app.html"
     })
     .state('app.home', {
       url: "/home",
       views: {
         'appContent' :{
-          templateUrl: "home.html",
+          templateUrl: "templates/home.html",
+          controller : "HomeController"
+        }
+      }
+    })
+    .state('app.menu.players', {
+      url: "/menu/players",
+      views: {
+        'appContent' :{
+          templateUrl: "templates/players-queue.html",
+          controller : "HomeController"
+        }
+      }
+    })
+    .state('app.menu.stats', {
+      url: "/menu/stats",
+      views: {
+        'appContent' :{
+          templateUrl: "templates/players-stats.html",
           controller : "HomeController"
         }
       }
@@ -137,36 +155,25 @@ angular.module('ionicApp', ['ionic'])
 
 .controller("StatsController", function($scope) {
   
-  $scope.data = {
-    items : []
-  };
-  
-  for(var i = 0; i < 25; i++) {
-    $scope.data.items.push({
-      id : i,
-      label : "Item " + i
-    })
-  }
-  
 })
 
 .directive("playersQueue", function() {
   return {
     restrict : "E",
-    templateUrl : "playersQueue.html"
+    templateUrl : "templates/players-queue.html"
   }
 })
 
 .directive("playersStats", function() {
   return {
     restrict : "E",
-    templateUrl : "playersStats.html"
+    templateUrl : "templates/players-stats.html"
   }
 })
 
-.directive("ionPurchase", function() {
+.directive("scoreboard", function() {
   return {
     restrict : "E",
-    template : "<h2>1-0</h2>"
+    templateUrl : "templates/scoreboard.html"
   }
 })
