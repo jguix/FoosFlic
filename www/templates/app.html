@@ -15,11 +15,11 @@
 		<ion-header-bar class="bar-assertive">
 			<div class="tabs-striped tabs-background-assertive tabs-color-light">
 				<div class="tabs">
-					<a class="tab-item active" href="#/menu/stats">
+					<a class="tab-item" ng-class="{active: data.activetab == 'queue'}" href="#">
 						<i class="icon ion-trophy"></i>
 						Partida
 					</a>
-					<a class="tab-item" href="#/menu/queue">
+					<a class="tab-item" ng-class="{active: data.activetab == 'stats'}" href="#">
 						<i class="icon ion-android-people"></i>
 						Jugadores
 					</a>
