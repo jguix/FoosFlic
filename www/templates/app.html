@@ -4,46 +4,43 @@
 		<ion-nav-bar class="bar-dark">
 			<ion-nav-buttons side="left">
 				<!-- Toggle left side menu -->
-				<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+				<!--button menu-toggle="left" class="button button-icon icon ion-navicon"></button-->
 			</ion-nav-buttons>
 		</ion-nav-bar>
 		<ion-nav-view name="appContent">
 		</ion-nav-view>
 	</ion-side-menu-content> 
 
-	<ion-side-menu side="left" expose-aside-when="large">
+	<ion-side-menu ng-controller='MenuController' side="left" expose-aside-when="large">
 		<ion-header-bar class="bar-assertive">
-			<div class="tabs-striped tabs-background-assertive tabs-color-light">
+			<div class="tabs-striped tabs-background-assertive tabs-color-dark">
 				<div class="tabs">
-					<a class="tab-item" ng-class="{active: data.activetab == 'queue'}" href="#">
+					<a class="tab-item" ng-class="{active: data.activeTab == 'queue'}" ng-click="data.activeTab = 'queue'">
 						<i class="icon ion-trophy"></i>
 						Partida
 					</a>
-					<a class="tab-item" ng-class="{active: data.activetab == 'stats'}" href="#">
+					<a class="tab-item" ng-class="{active: data.activeTab == 'stats'}" ng-click="data.activeTab = 'stats'">
 						<i class="icon ion-android-people"></i>
 						Jugadores
 					</a>
 				</div>
 			</div>
-			<!--button class="button button-clear">Llegar</button>
-			<h1 class="title">Jugadores</h1>
-			<button class="button button-clear">Salir</button-->
 		</ion-header-bar>
-		<ion-content>
-			<players-queue ng-controller='CartController'></players-queue>
-			<players-stats ng-controller='StatsController'></players-stats>
-		</ion-content-->
-	</ion-side-menu>
+		<div class="bar bar-subheader" ng-show="data.activeTab == 'queue'">
+			<button class="button button-clear">Llegar</button>
+			<h1 class="title">Jugadores</h1>
+			<button class="button button-clear">Salir</button>
+		</div>
+		<div class="bar bar-subheader" ng-show="data.activeTab == 'stats'">
+			<button class="button button-clear">Iniciar</button>
+			<h1 class="title">Partida</h1>
+			<button class="button button-clear">Terminar</button>
+		</div>
+		<ion-content class="has-subheader">
+			<players-queue ng-show="data.activeTab == 'queue'"></players-queue>
+			<players-stats ng-show="data.activeTab == 'stats'"></players-stats>
+		</ion-content>
 
-	<!-- ion-side-menu side="right">
-	<ion-header-bar class="bar-assertive">
-	<button class="button button-clear">Reiniciar</button>
-	<h1 class="title">Partida</h1>
-	<button class="button button-clear">Terminar</button>
-	</ion-header-bar>
-	<ion-content>
-	<players-stats ng-controller='StatsController'></players-stats>
-	</ion-content>
-	</ion-side-menu-->
+	</ion-side-menu>
 
 </ion-side-menus>

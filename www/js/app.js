@@ -76,10 +76,11 @@ angular.module('ionicApp', ['ionic'])
 
 })
 
-.controller("CartController", function($scope) {
+.controller("MenuController", function($scope) {
   
-  $scope.data = {
-    players : [
+  $scope.data = {};
+  $scope.data.activeTab = "queue";
+  $scope.data.players = [
       {
         id : 0,
         name : "Modesto"
@@ -148,13 +149,12 @@ angular.module('ionicApp', ['ionic'])
         id : 16,
         name : "Invitado 4"
       }
-    ]
-  };
-  
-})
-
-.controller("StatsController", function($scope) {
-  
+    ];
+    $scope.data.queue = [];
+    $scope.data.queue.push($scope.data.players[6]);
+    $scope.data.queue.push($scope.data.players[5]);
+    $scope.data.queue.push($scope.data.players[11]);
+    $scope.data.queue.push($scope.data.players[1]);
 })
 
 .directive("playersQueue", function() {
