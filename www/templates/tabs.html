@@ -1,0 +1,31 @@
+<ion-side-menus>
+
+	<ion-side-menu-content ng-controller='HomeController'>
+
+		<div class="bar bar-header bar-dark">
+  			<h1 class="title">FoosFlic</h1>
+		</div>
+		<ion-content class="padding has-header">
+			<scoreboard></scoreboard>
+		</ion-content>
+		
+	</ion-side-menu-content> 
+
+	<ion-side-menu side="left" expose-aside-when="large">
+		<ion-nav-bar class="bar-assertive">
+		</ion-nav-bar>
+		<ion-tabs class="tabs-top tabs-striped tabs-assertive">
+
+			<ion-tab title="Jugadores" icon="ion-trophy" href="#/tab/queue">
+			<ion-nav-view name="tab-queue"></ion-nav-view>
+			</ion-tab>
+
+			<ion-tab title="Partida" icon="ion-android-people" href="#/tab/stats">
+			<ion-nav-view name="tab-stats"></ion-nav-view>
+			</ion-tab>
+
+		</ion-tabs>
+
+	</ion-side-menu>
+
+</ion-side-menus>

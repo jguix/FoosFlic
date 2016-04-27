@@ -25,7 +25,7 @@ angular.module('ionicApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-  $stateProvider
+/*  $stateProvider
     .state('app', {
       url: "/app",
       abstract: true,
@@ -59,21 +59,57 @@ angular.module('ionicApp', ['ionic'])
       }
     })
   
-  $urlRouterProvider.otherwise("/app/home");
+  $urlRouterProvider.otherwise("/app/home");*/
+
+  $stateProvider
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "templates/tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home' :{
+          templateUrl: "templates/home.html",
+          controller : "HomeController"
+        }
+      }
+    })
+    .state('tabs.queue', {
+      url: "/queue",
+      views: {
+        'tab-queue': {
+          templateUrl: "templates/tab-queue.html",
+          controller: 'MenuController'
+        }
+      }
+    })
+    .state('tabs.stats', {
+      url: "/stats",
+      views: {
+        'tab-stats': {
+          templateUrl: "templates/tab-stats.html",
+          controller: 'MenuController'
+        }
+      }
+    })
+
+   $urlRouterProvider.otherwise("/tab/queue");
+
 })
+
 
 .controller('AppController', function($scope, $ionicSideMenuDelegate) {
   //$ionicSideMenuDelegate.toggleLeft();
 })
 
 .controller("HomeController", function($scope, $ionicSideMenuDelegate) {
-  $scope.$watch(function() { 
-    return $ionicSideMenuDelegate.isOpen(); 
-  }, function(isOpen) {
-    console.log("Side menu " + (isOpen == true ? "open" : "closed") );
-//    console.log("Side menu " + isOpen);
-  });
-
+  console.log("Hola");
+  
+  $scope.data = {};
+  $scope.data.scoreLocal = 1;
+  $scope.data.scoreVisitor = 0;
 })
 
 .controller("MenuController", function($scope) {
