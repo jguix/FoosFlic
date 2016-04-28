@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic', 'ngStorage'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -100,19 +100,23 @@ angular.module('ionicApp', ['ionic'])
 })
 
 
-.controller('AppController', function($scope, $ionicSideMenuDelegate) {
+.controller('AppController', function($scope, $sessionStorage) {
   //$ionicSideMenuDelegate.toggleLeft();
+  // Hook session storage to the scope
+  $scope.$storage = $sessionStorage;
 })
 
-.controller("HomeController", function($scope, $ionicSideMenuDelegate) {
-  console.log("Hola");
-  
-  $scope.data = {};
-  $scope.data.scoreLocal = 1;
-  $scope.data.scoreVisitor = 0;
+.controller("HomeController", function($scope, $sessionStorage) {
+  // Hook session storage to the scope
+  $scope.$storage = $sessionStorage.$default({
+    scoreLocal: 0,
+    scoreVisitor: 0
+  });
 })
 
-.controller("MenuController", function($scope) {
+.controller("MenuController", function($scope, $sessionStorage) {
+  // Hook session storage to the scope
+  $scope.$storage = $sessionStorage;
   
   $scope.data = {};
   $scope.data.activeTab = "queue";
