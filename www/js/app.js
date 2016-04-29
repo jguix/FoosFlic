@@ -3,6 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+// @See https://github.com/gsklee/ngStorage
 angular.module('ionicApp', ['ionic', 'ngStorage'])
 
 .run(function($ionicPlatform) {
@@ -24,42 +25,6 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-
-/*  $stateProvider
-    .state('app', {
-      url: "/app",
-      abstract: true,
-      templateUrl: "templates/app.html"
-    })
-    .state('app.home', {
-      url: "/home",
-      views: {
-        'appContent' :{
-          templateUrl: "templates/home.html",
-          controller : "HomeController"
-        }
-      }
-    })
-    .state('app.menu.players', {
-      url: "/menu/players",
-      views: {
-        'appContent' :{
-          templateUrl: "templates/players-queue.html",
-          controller : "HomeController"
-        }
-      }
-    })
-    .state('app.menu.stats', {
-      url: "/menu/stats",
-      views: {
-        'appContent' :{
-          templateUrl: "templates/players-stats.html",
-          controller : "HomeController"
-        }
-      }
-    })
-  
-  $urlRouterProvider.otherwise("/app/home");*/
 
   $stateProvider
     .state('tabs', {
@@ -110,17 +75,9 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
   // Hook session storage to the scope
   $scope.$storage = $sessionStorage.$default({
     scoreLocal: 0,
-    scoreVisitor: 0
-  });
-})
-
-.controller("MenuController", function($scope, $sessionStorage) {
-  // Hook session storage to the scope
-  $scope.$storage = $sessionStorage;
-  
-  $scope.data = {};
-  $scope.data.activeTab = "queue";
-  $scope.data.players = [
+    scoreVisitor: 0,
+    queue : [],
+    players : [
       {
         id : 0,
         name : "Modesto"
@@ -189,12 +146,27 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
         id : 16,
         name : "Invitado 4"
       }
-    ];
-    $scope.data.queue = [];
-    $scope.data.queue.push($scope.data.players[6]);
-    $scope.data.queue.push($scope.data.players[5]);
-    $scope.data.queue.push($scope.data.players[11]);
-    $scope.data.queue.push($scope.data.players[1]);
+    ]
+  });
+})
+
+.controller("MenuController", function($scope, $sessionStorage, $ionicPopover) {
+  // Hook session storage to the scope
+  $scope.$storage = $sessionStorage;
+
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+    scope: $scope,
+  }).then(function(popover) {
+    $scope.popover = popover;
+  });
+
+  $scope.selectPlayer = function(id) {
+    //$storage.selectedPlayer = id;
+    console.log("Selected player: " + id);
+    $scope.$storage.queue.push($scope.$storage.players[id]);
+    $scope.popover.hide();
+  }
+
 })
 
 .directive("playersQueue", function() {
