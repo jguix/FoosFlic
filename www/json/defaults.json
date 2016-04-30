@@ -1,0 +1,75 @@
+{
+      "scoreLocal": 0,
+      "scoreVisitor": 0,
+      "queue" : [],
+      "players" : [
+      {
+        "id" : 0,
+        "name" : "Modesto"
+      },
+      {
+        "id" : 1,
+        "name" : "Cristina"
+      },
+      {
+        "id" : 2,
+        "name" : "Alex"
+      },
+      {
+        "id" : 3,
+        "name" : "Gabi"
+      },
+      {
+        "id" : 4,
+        "name" : "Mari Carmen"
+      },
+      {
+        "id" : 5,
+        "name" : "Maria Luisa"
+      },
+      {
+        "id" : 6,
+        "name" : "Elliot"
+      },
+      {
+        "id" : 7,
+        "name" : "Enrique"
+      },
+      {
+        "id" : 8,
+        "name" : "Miguel"
+      },
+      {
+        "id" : 9,
+        "name" : "Lucía"
+      },
+      {
+        "id" : 10,
+        "name" : "Mari Cruz"
+      },
+      {
+        "id" : 11,
+        "name" : "Juangui"
+      },
+      {
+        "id" : 12,
+        "name" : "Damia"
+      },
+      {
+        "id" : 13,
+        "name" : "Invitado 1"
+      },
+      {
+        "id" : 14,
+        "name" : "Invitado 2"
+      },
+      {
+        "id" : 15,
+        "name" : "Invitado 3"
+      },
+      {
+        "id" : 16,
+        "name" : "Invitado 4"
+      }
+      ]
+}
