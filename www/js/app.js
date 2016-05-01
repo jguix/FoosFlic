@@ -27,12 +27,12 @@
   .config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider
-    .state('tabs', {
-      url: "/tab",
+    .state('app', {
+      url: "/app",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/app.html"
     })
-    .state('tabs.home', {
+    .state('app.home', {
       url: "/home",
       views: {
         'home' :{
@@ -41,7 +41,7 @@
         }
       }
     })
-    .state('tabs.queue', {
+    .state('app.queue', {
       url: "/queue",
       views: {
         'tab-queue': {
@@ -50,7 +50,16 @@
         }
       }
     })
-    .state('tabs.stats', {
+    .state('app.add', {
+      url: "/add",
+      views: {
+        'tab-queue-add': {
+          templateUrl: "templates/tab-queue-add.html",
+          controller: 'MenuController'
+        }
+      }
+    })
+    .state('app.stats', {
       url: "/stats",
       views: {
         'tab-stats': {
@@ -60,7 +69,7 @@
       }
     })
 
-    $urlRouterProvider.otherwise("/tab/queue");
+    $urlRouterProvider.otherwise("/app/queue");
 
   })
 
@@ -81,84 +90,9 @@
   .controller("HomeController", function($scope, $sessionStorage) {
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
-    /*$scope.$storage = $sessionStorage.$default({
-      scoreLocal: 0,
-      scoreVisitor: 0,
-      queue : [],
-      players : [
-      {
-        id : 0,
-        name : "Modesto"
-      },
-      {
-        id : 1,
-        name : "Cristina"
-      },
-      {
-        id : 2,
-        name : "Alex"
-      },
-      {
-        id : 3,
-        name : "Gabi"
-      },
-      {
-        id : 4,
-        name : "Mari Carmen"
-      },
-      {
-        id : 5,
-        name : "Maria Luisa"
-      },
-      {
-        id : 6,
-        name : "Elliot"
-      },
-      {
-        id : 7,
-        name : "Enrique"
-      },
-      {
-        id : 8,
-        name : "Miguel"
-      },
-      {
-        id : 9,
-        name : "Lucía"
-      },
-      {
-        id : 10,
-        name : "Mari Cruz"
-      },
-      {
-        id : 11,
-        name : "Juangui"
-      },
-      {
-        id : 12,
-        name : "Damia"
-      },
-      {
-        id : 13,
-        name : "Invitado 1"
-      },
-      {
-        id : 14,
-        name : "Invitado 2"
-      },
-      {
-        id : 15,
-        name : "Invitado 3"
-      },
-      {
-        id : 16,
-        name : "Invitado 4"
-      }
-      ]
-    });*/
-})
+  })
 
-  .controller("MenuController", function($scope, $sessionStorage, $ionicPopover) {
+  .controller("MenuController", function($scope, $sessionStorage, $ionicPopover, $state) {
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
 
@@ -173,6 +107,13 @@
       console.log("Selected player: " + id);
       $scope.$storage.queue.push($scope.$storage.players[id]);
       $scope.popover.hide();
+    }
+
+    $scope.addPlayer = function(id) {
+      //$storage.selectedPlayer = id;
+      console.log("Selected player: " + id);
+      $scope.$storage.queue.push($scope.$storage.players[id]);
+      $state.go('tabs.queue')
     }
 
   })
