@@ -1,4 +1,4 @@
-# FossFlic
+# FoosFlic
 
 Too many people hanging around the foosball table? Foosball is amazing but sharing a foosball table between lots of friends/colleagues can be tricky.
 
