@@ -1,13 +1,11 @@
 <ion-view view-title="Jugadores">
 	<ion-nav-buttons side="left">
-		<button class="button" ng-click="popover.show($event)">Llegar</button>
+		<button class="button" ui-sref="app.queue.add">Llegar</button>
     </ion-nav-buttons>
 	<ion-nav-buttons side="right">
 		<button class="button" ng-click="popover.show($event)">Salir</button>
     </ion-nav-buttons>
 	<ion-content>
-		<div class="list">
-			<div class="item" ng-repeat="player in $storage.queue">{{player.name}}</div>
-		</div>
+		<div ui-view name="tab-queue-content"></div>
 	</ion-content>
 </ion-view>

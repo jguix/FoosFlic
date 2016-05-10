@@ -13,10 +13,17 @@
 
 	<ion-side-menu side="left" expose-aside-when="large">
 		<ion-nav-bar class="bar-assertive">
+			<ion-nav-buttons side="left">
+				<button class="button" ui-sref="app.queue.add">Llegar</button>
+		    </ion-nav-buttons>
+			<ion-nav-buttons side="right">
+				<button class="button" ng-click="popover.show($event)">Salir</button>
+		    </ion-nav-buttons>
 		</ion-nav-bar>
+
 		<ion-tabs class="tabs-top tabs-striped tabs-assertive">
 
-			<ion-tab title="Jugadores" icon="ion-android-people" ui-sref="app.queue">
+			<ion-tab title="Jugadores" icon="ion-android-people" ui-sref="app.queue.show">
 				<ion-nav-view name="tab-queue"></ion-nav-view>
 			</ion-tab>
 

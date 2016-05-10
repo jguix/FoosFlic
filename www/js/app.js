@@ -11,7 +11,7 @@
       if(window.cordova && window.cordova.plugins.Keyboard) {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
 
         // Don't remove this line unless you know what you are doing. It stops the viewport
         // from snapping when text inputs are focused. Ionic handles this internally for
@@ -32,28 +32,28 @@
       abstract: true,
       templateUrl: "templates/app.html"
     })
-    .state('app.home', {
-      url: "/home",
+    .state('app.queue', {
+      url: "/queue",
+      abstract: true,
       views: {
-        'home' :{
-          templateUrl: "templates/home.html",
-          controller : "HomeController"
+        'tab-queue': {
+          templateUrl: "templates/tab-queue.html"
         }
       }
     })
-    .state('app.queue', {
-      url: "/queue",
+    .state('app.queue.show', {
+      url: "/show",
       views: {
-        'tab-queue': {
-          templateUrl: "templates/tab-queue.html",
+        'tab-queue-content': {
+          templateUrl: "templates/tab-queue-show.html",
           controller: 'MenuController'
         }
       }
     })
-    .state('app.add', {
+    .state('app.queue.add', {
       url: "/add",
       views: {
-        'tab-queue-add': {
+        'tab-queue-content': {
           templateUrl: "templates/tab-queue-add.html",
           controller: 'MenuController'
         }
@@ -69,7 +69,7 @@
       }
     })
 
-    $urlRouterProvider.otherwise("/app/queue");
+    $urlRouterProvider.otherwise("/app/queue/show");
 
   })
 
@@ -96,12 +96,6 @@
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
 
-    $ionicPopover.fromTemplateUrl('templates/popover.html', {
-      scope: $scope,
-    }).then(function(popover) {
-      $scope.popover = popover;
-    });
-
     $scope.selectPlayer = function(id) {
       //$storage.selectedPlayer = id;
       console.log("Selected player: " + id);
@@ -113,23 +107,9 @@
       //$storage.selectedPlayer = id;
       console.log("Selected player: " + id);
       $scope.$storage.queue.push($scope.$storage.players[id]);
-      $state.go('tabs.queue')
+      $state.go('app.queue.show')
     }
 
-  })
-
-  .directive("playersQueue", function() {
-    return {
-      restrict : "E",
-      templateUrl : "templates/players-queue.html"
-    }
-  })
-
-  .directive("playersStats", function() {
-    return {
-      restrict : "E",
-      templateUrl : "templates/players-stats.html"
-    }
   })
 
   .directive("scoreboard", function() {
