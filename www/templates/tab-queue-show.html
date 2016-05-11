@@ -1,3 +1,9 @@
 <div class="list">
-	<div class="item" ng-repeat="player in $storage.queue">{{player.name}}</div>
+	<!--div class="item" ng-repeat="player in $storage.queue">{{player.name}}</div-->
+	<div ng-repeat="player in $storage.queue">
+	    <div class="item" ng-if="$even">
+	        <p>{{$storage.queue[$index].name}}</p>
+	        <p>{{$storage.queue[$index + 1].name}}</p>
+	    </div>
+	</div>
 </div>
