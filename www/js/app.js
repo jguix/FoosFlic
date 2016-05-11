@@ -46,16 +46,25 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
         views: {
             'tab-queue-content': {
                 templateUrl: "templates/tab-queue-show.html",
-                controller: 'MenuController'
+                controller: 'QueueController'
             }
         }
     })
-    .state('app.queue.add', {
-        url: "/add",
+    .state('app.queue.checkin', {
+        url: "/ckeckin",
         views: {
             'tab-queue-content': {
-                templateUrl: "templates/tab-queue-add.html",
-                controller: 'MenuController'
+                templateUrl: "templates/tab-queue-checkin.html",
+                controller: 'QueueController'
+            }
+        }
+    })
+    .state('app.queue.checkout', {
+        url: "/ckeckout",
+        views: {
+            'tab-queue-content': {
+                templateUrl: "templates/tab-queue-checkout.html",
+                controller: 'QueueController'
             }
         }
     })
@@ -64,7 +73,7 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
         views: {
             'tab-stats': {
                 templateUrl: "templates/tab-stats.html",
-                controller: 'MenuController'
+                controller: 'QueueController'
             }
         }
     })

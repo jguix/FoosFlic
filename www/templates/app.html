@@ -1,6 +1,6 @@
 <ion-side-menus>
 
-	<ion-side-menu-content ng-controller='HomeController'>
+	<ion-side-menu-content ng-controller='ScoreController'>
 
 		<div class="bar bar-header bar-dark">
   			<h1 class="title">FoosFlic</h1>
@@ -14,10 +14,10 @@
 	<ion-side-menu side="left" expose-aside-when="large">
 		<ion-nav-bar class="bar-assertive">
 			<ion-nav-buttons side="left">
-				<button class="button" ui-sref="app.queue.add">Llegar</button>
+				<button class="button" ui-sref="app.queue.checkin">Llegar</button>
 		    </ion-nav-buttons>
 			<ion-nav-buttons side="right">
-				<button class="button" ng-click="popover.show($event)">Salir</button>
+				<button class="button" ui-sref="app.queue.checkout">Salir</button>
 		    </ion-nav-buttons>
 		</ion-nav-bar>
 

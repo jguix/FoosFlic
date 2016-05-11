@@ -1,6 +1,6 @@
 angular.module('ionicApp')
 
-.controller("HomeController", function($scope, $sessionStorage) {
+.controller("ScoreController", function($scope, $sessionStorage) {
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
 })
