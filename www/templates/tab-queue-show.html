@@ -1,6 +1,6 @@
 <div class="list">
 	<div ng-repeat="player in $storage.queue">
-	    <div class="item" ng-if="$even">
+	    <div class="item" ng-if="$even" ng-class="{{$index<4 ? 'a' : 'b'}}">
 	        <p>{{$storage.queue[$index].name}}</p>
 	        <p>{{$storage.queue[$index + 1].name}}</p>
 	    </div>

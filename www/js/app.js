@@ -73,7 +73,7 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
         views: {
             'tab-stats': {
                 templateUrl: "templates/tab-stats.html",
-                controller: 'QueueController'
+                controller: 'GameController'
             }
         }
     })
