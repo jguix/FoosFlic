@@ -10,13 +10,16 @@ angular.module('ionicApp')
 
 	$scope.reset = function(id) {
 		console.log("Reset game");
-		// Filter array removing selected player
-		//$scope.$storage.queue = $filter('filter')($scope.$storage.queue, {id: "!" + id});
+		$scope.$storage.scoreLocal = 0;
+		$scope.$storage.scoreVisitor = 0;
 		//$state.go('app.queue.show');
 	}
 
 	$scope.end = function() {
 		console.log("End game");
+		$scope.$storage.scoreLocal = 0;
+		$scope.$storage.scoreVisitor = 0;
+		$scope.$storage.queue = [];
 	}
 
 	$scope.start();
