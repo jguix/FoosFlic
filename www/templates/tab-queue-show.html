@@ -1,8 +1,12 @@
 <div class="list">
 	<div ng-repeat="player in $storage.queue">
 	    <div class="item" ng-if="$even" ng-class="{{$index<4 ? 'a' : 'b'}}">
-	        <p>{{$storage.queue[$index].name}}</p>
-	        <p>{{$storage.queue[$index + 1].name}}</p>
+	    	<div class="queue1"><img ng-src="img/{{$storage.queue[$index].name}}.png"></div>
+	    	<div class="queue2">
+	    		<p>{{$storage.queue[$index].name}}</p>
+	        	<p>{{$storage.queue[$index+1].name}}</p>
+	    	</div>
+	    	<div class="queue3"><img ng-src="img/{{$storage.queue[$index+1].name}}.png"></div>
 	    </div>
 	</div>
 </div>
