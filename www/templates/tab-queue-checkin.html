@@ -1,3 +1,6 @@
 <div class="list">
-	<a class="item" ng-repeat="player in notPlaying()" ng-click="checkin(player.id)">{{player.name}}</a>
+	<a class="item item-avatar" ng-repeat="player in notPlaying()" ng-click="checkin(player.id)">
+		<img ng-src="img/{{player.name}}.png">
+		<p class="player">{{player.name}}</p>
+	</a>
 </div>

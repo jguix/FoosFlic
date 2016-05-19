@@ -1,1 +1,33 @@
 /* Empty. Add your own CSS if you like */
+.queue1 {
+	width: 25%;
+	float: left;
+}
+
+.queue2 {
+    padding: 10px;
+	width: 50%;
+	float: left;
+}
+
+.queue3 {
+	width: 25%;
+	float: left;
+}
+
+img.avatar {
+	width: 60px;
+}
+
+p.player {
+	font-family: fantasy;
+	font-weight: bolder;
+}
+
+p.player1 {
+	text-align: left;
+}
+
+p.player2 {
+	text-align: right;
+}

@@ -25,7 +25,7 @@
       },
       {
         "id" : 5,
-        "name" : "Maria Luisa"
+        "name" : "Juangui"
       },
       {
         "id" : 6,
@@ -49,27 +49,15 @@
       },
       {
         "id" : 11,
-        "name" : "Juangui"
-      },
-      {
-        "id" : 12,
         "name" : "Damia"
       },
       {
-        "id" : 13,
+        "id" : 12,
         "name" : "Invitado 1"
       },
       {
-        "id" : 14,
+        "id" : 13,
         "name" : "Invitado 2"
-      },
-      {
-        "id" : 15,
-        "name" : "Invitado 3"
-      },
-      {
-        "id" : 16,
-        "name" : "Invitado 4"
       }
       ]
 }
