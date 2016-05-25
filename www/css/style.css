@@ -20,8 +20,8 @@ img.avatar {
 }
 
 p.player {
-	font-family: fantasy;
-	font-weight: bolder;
+	font-family: Lobster;
+  	font-size: 1.0em;
 }
 
 p.player1 {
@@ -30,4 +30,52 @@ p.player1 {
 
 p.player2 {
 	text-align: right;
+}
+
+.scoreboard {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-family: Coda;
+	font-size: 16em;
+	font-weight: 800;
+	height: 300px;
+	margin: 10px;
+	line-height: 300px; /* ionic defaults put text with big fonts in wrong place */
+	/*background-color: grey;*/
+}
+
+.score {
+	width: 40%;
+	/*background-color: lightgrey;*/
+}
+
+.separator {
+	width: 10%;
+	/*background-color: grey;*/
+}
+
+.teamboard {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.5em;
+	height: 250px;
+	margin: 10px;
+	/*background-color: grey;*/
+}
+
+.teamplayer {
+	width: 20%;
+	padding: 10px;
+	font-family: Lobster;
+	/*background-color: lightgrey;*/
+}
+
+.teamplayer img {
+	width: 80%;
+}
+
+.football img {
+	width: 30%;
 }

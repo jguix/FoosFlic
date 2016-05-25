@@ -1,5 +1,30 @@
-<h1>{{$storage.scoreLocal}} - {{$storage.scoreVisitor}}</h1>
-
-<button class="button button-assertive" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1">Gol local</button>
-
-<button class="button button-assertive" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1">Gol visitante</button>
+<div class="scoreboard">
+  <div class="score">{{$storage.scoreLocal}}</div>
+  <div class="separator"></div>
+  <div class="score">{{$storage.scoreVisitor}}</div>
+</div>
+<div class="teamboard">
+  <div class="teamplayer">
+    <img src="img/Alex.png" />
+    <p>Alex</p>
+    <!--button class="button button-assertive" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1">Gol</button-->
+    <a class="football" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1"><img src="img/football.png"/></a>
+  </div>
+  <div class="teamplayer">
+    <img src="img/Cristina.png" />
+    <p>Cristina</p>
+    <a class="football" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1"><img src="img/football.png"/></a>
+  </div>
+  <div class="separator"></div>
+  <div class="teamplayer">
+    <img src="img/Mari Carmen.png" />
+    <p>Mari Carmen</p>
+    <!--button class="button button-assertive" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1">Gol</button-->
+    <a class="football" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1"><img src="img/football.png"/></a>
+  </div>
+  <div class="teamplayer">
+    <img src="img/Enrique.png" />
+    <p>Enrique</p>
+    <a class="football" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1"><img src="img/football.png"/></a>
+  </div>
+</div>
