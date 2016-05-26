@@ -5,8 +5,24 @@
 	<ion-nav-buttons side="right">
 		<button class="button" ng-click="end()">Terminar</button>
     </ion-nav-buttons>
-    <ion-content class="padding">
-		<p>Partidas ganadas: 3</p>
-		<p>Partidas perdidas: 1</p>
+    <ion-content>
+
+		<div class="list">
+			<div class="item">
+				<div class="item-col"></div>
+				<div class="item-col">G</div>
+				<div class="item-col">P</div>
+				<div class="item-col">GF</div>
+				<div class="item-col">GC</div>
+			</div>
+			<div class="item item-avatar" ng-repeat="player in $storage.players" ng-click="checkin(player.id)">
+				<img class="item-col" ng-src="img/{{player.name}}.png">
+				<div class="item-col">{{player.won}}</div>
+				<div class="item-col">{{player.lost}}</div>
+				<div class="item-col">{{player.goalsFor}}</div>
+				<div class="item-col">{{player.goalsAgainst}}</div>
+			</div>
+		</div>
+
     </ion-content>
 </ion-view>

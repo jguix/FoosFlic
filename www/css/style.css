@@ -79,3 +79,12 @@ p.player2 {
 .football img {
 	width: 30%;
 }
+
+.item {
+	font-family: Lobster;
+  	display: flex;
+}
+
+.item-col {
+  flex: 1;
+}
