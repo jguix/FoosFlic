@@ -6,7 +6,14 @@ angular.module('ionicApp')
 
 	$scope.checkin = function(id) {
 		console.log("Selected player: " + id);
+		// Reset stats for player
+		$scope.$storage.players[id].won = 0;
+		$scope.$storage.players[id].lost = 0;
+		$scope.$storage.players[id].goalsFor = 0;
+		$scope.$storage.players[id].goalsAgainst = 0;
+		// Add player to queue
 		$scope.$storage.queue.push($scope.$storage.players[id]);
+
 		$state.go('app.queue.show');
 	}
 

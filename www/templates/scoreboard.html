@@ -3,26 +3,26 @@
   <div class="separator"></div>
   <div class="score">{{$storage.scoreVisitor}}</div>
 </div>
-<div class="teamboard">
+<div class="teamboard" ng-if="$storage.queue.length >= 4">
   <div class="teamplayer">
-    <img src="img/Alex.png" />
-    <p>Alex</p>
-    <a class="football" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1"><img src="img/football.png"/></a>
+    <img src="img/{{$storage.queue[0].name}}.png" />
+    <p>{{$storage.queue[0].name}}</p>
+    <a class="football" ng-click="localGoal()"><img src="img/football.png"/></a>
   </div>
   <div class="teamplayer">
-    <img src="img/Cristina.png" />
-    <p>Cristina</p>
-    <a class="football" ng-click="$storage.scoreLocal = $storage.scoreLocal + 1"><img src="img/football.png"/></a>
+    <img src="img/{{$storage.queue[1].name}}.png" />
+    <p>{{$storage.queue[1].name}}</p>
+    <a class="football" ng-click="localGoal()"><img src="img/football.png"/></a>
   </div>
   <div class="separator"></div>
   <div class="teamplayer">
-    <img src="img/Mari Carmen.png" />
-    <p>Mari Carmen</p>
-    <a class="football" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1"><img src="img/football.png"/></a>
+    <img src="img/{{$storage.queue[2].name}}.png" />
+    <p>{{$storage.queue[2].name}}</p>
+    <a class="football" ng-click="visitorGoal()"><img src="img/football.png"/></a>
   </div>
   <div class="teamplayer">
-    <img src="img/Enrique.png" />
-    <p>Enrique</p>
-    <a class="football" ng-click="$storage.scoreVisitor = $storage.scoreVisitor + 1"><img src="img/football.png"/></a>
+    <img src="img/{{$storage.queue[3].name}}.png" />
+    <p>{{$storage.queue[3].name}}</p>
+    <a class="football" ng-click="visitorGoal()"><img src="img/football.png"/></a>
   </div>
 </div>
