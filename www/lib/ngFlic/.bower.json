@@ -1,36 +1,38 @@
 {
   "name": "ngFlic",
-  "description": "An AngularJS factory providing access to the Flic SDK",
+  "description": "AngularJS Cordova wrapper for the Cordova-Flic plugin",
   "keywords": [
+    "cordova",
+    "phonegap",
     "angularjs",
     "angular",
+    "ionic",
+    "cordova plugin",
     "flic",
     "smart",
     "button",
     "sdk"
   ],
   "ignore": [],
-  "version": "0.0.3",
+  "version": "0.6.0",
   "main": "dist/ngFlic.js",
   "license": "Apache 2.0",
   "authors": [
-    {
-      "name": "jguix"
-    }
+    "Juangui Jordan <juangui@gmail.com>"
   ],
   "dependencies": {},
   "devDependencies": {
     "angular": "latest"
   },
   "homepage": "https://github.com/jguix/ngFlic",
-  "_release": "0.0.3",
+  "_release": "0.6.0",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.3",
-    "commit": "df4ef0203c9ac58d4435513620c5feec0dac2d5b"
+    "tag": "v0.6.0",
+    "commit": "965f590670e65a3e9ce13537b51b9ad2fcda0135"
   },
   "_source": "https://github.com/jguix/ngFlic.git",
-  "_target": "~0.0.3",
+  "_target": "~0.6.0",
   "_originalSource": "ngFlic",
   "_direct": true
 }

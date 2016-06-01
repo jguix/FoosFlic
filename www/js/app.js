@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // @See https://github.com/gsklee/ngStorage
-angular.module('ionicApp', ['ionic', 'ngStorage'])
+angular.module('ionicApp', ['ionic', 'ngStorage', 'ngFlic'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -74,6 +74,15 @@ angular.module('ionicApp', ['ionic', 'ngStorage'])
             'tab-stats': {
                 templateUrl: "templates/tab-stats.html",
                 controller: 'GameController'
+            }
+        }
+    })
+    .state('app.controllers', {
+        url: "/controllers",
+        views: {
+            'tab-controllers': {
+                templateUrl: "templates/tab-controllers.html",
+                controller: 'FlicController'
             }
         }
     })

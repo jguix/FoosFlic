@@ -1,0 +1,31 @@
+<ion-view view-title="Botones">
+	<!--ion-nav-buttons side="left">
+		<button class="button" ng-click="reset()">Iniciar</button>
+    </ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<button class="button" ng-click="end()">Terminar</button>
+    </ion-nav-buttons-->
+    <ion-content>
+
+		<div class="list">
+          <div class="item item-divider" ng-show="buttons.length > 0">
+            Botones conocidos
+          </div>
+          <a ng-repeat="button in buttons" class="item item-thumbnail-left" href="#">
+            <img src="img/button_{{button.color}}_idle.png">
+            <h1 class="dark">{{button.color}} button</h1>
+          </a>
+        </div>
+        <div class="padding">
+          <div class="card">
+            <div class="item item-text-wrap">
+              {{status}}
+            </div>
+          </div>
+          <button ng-click="grabButton()" class="button button-block button-dark">
+            Obtener botón
+          </button>
+        </div>
+
+    </ion-content>
+</ion-view>

@@ -1,31 +1,12 @@
-// Ionic Starter App
+angular.module('ionicApp')
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'ngFlic'])
+.controller("FlicController", function($scope, $sessionStorage, $rootScope, $ionicPlatform, $timeout, $cordovaFlic) {
+	// Hook session storage to the scope
+	$scope.$storage = $sessionStorage;
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+	console.log("FlicController");
 
-      // Don't remove this line unless you know what you are doing. It stops the viewport
-      // from snapping when text inputs are focused. Ionic handles this internally for
-      // a much nicer keyboard experience.
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
-})
-
-.controller('MyCtrl', function($scope, $rootScope, $ionicPlatform, $timeout, $cordovaFlic) {
-
-  $ionicPlatform.ready(function() {
+	$ionicPlatform.ready(function() {
 
     var appId = "dbcce1f9-c4b9-41c1-89fb-2f36c8577706";
     var appSecret = "f17c4448-093b-4ba8-951a-bb40113b1900";
@@ -61,17 +42,18 @@ angular.module('starter', ['ionic', 'ngFlic'])
     });
 
     $rootScope.$on('$cordovaFlic:flicButtonClick', function (event, data) {
-      $scope.status = event.color + ' button received ' + event.type + ' event.';
+      $scope.status = data.color + ' button received ' + data.type + ' event.';
     });
 
     $rootScope.$on('$cordovaFlic:flicButtonDblClick', function (event, data) {
-      $scope.status = event.color + ' button received ' + event.type + ' event.';
+      $scope.status = data.color + ' button received ' + data.type + ' event.';
     });
 
     $rootScope.$on('$cordovaFlic:flicButtonHold', function (event, data) {
-      $scope.status = event.color + ' button received ' + event.type + ' event.';
+      $scope.status = data.color + ' button received ' + data.type + ' event.';
     });
 
   }, false);
 
-});
+
+})
