@@ -3,6 +3,7 @@ angular.module('ionicApp')
 .controller("FlicController", function($scope, $sessionStorage, $rootScope, $ionicPlatform, $timeout, $cordovaFlic) {
 	// Hook session storage to the scope
 	$scope.$storage = $sessionStorage;
+  $scope.status = 'Waiting for Ionic Platform ready...';
 
 	console.log("FlicController");
 
@@ -13,6 +14,7 @@ angular.module('ionicApp')
     var appName = "Table Football";
 
     $scope.status = 'Initiating flic...';
+    console.log("Initiating flic...");
     $scope.buttons = [];
 
     $scope.grabButton = function() {

@@ -6,9 +6,7 @@
   },
   "dependencies": {
     "angular-local-storage": "~0.2.7",
-    "ngstorage": "~0.3.10"
-  },
-  "resolutions": {
+    "ngstorage": "~0.3.10",
     "ngFlic": "~0.6.0"
   }
 }
