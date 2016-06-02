@@ -2,11 +2,11 @@
 <widget id="com.ionicframework.foosflic767415" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>FoosFlic</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
-    </author>
+    This app helps organize teams and matches on a first-in-first-out basis, where the winner team stays and the looser team is replaced by the two players waiting for longer time. Flic smart buttons can be placed on the foosball table and used to send goals to the scoreboard. The app keeps statistics of the current game session, tracking scored goals, won matches, etc.
+  </description>
+  <author email="juangui@gmail.com" href="http://example.com.com/">
+    Juangui Jordan
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="android-minSdkVersion" value="19"/>
@@ -20,6 +20,7 @@
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="android">
+    <icon src="icon.png" />
     <icon src="resources/android/icon/drawable-ldpi-icon.png" density="ldpi"/>
     <icon src="resources/android/icon/drawable-mdpi-icon.png" density="mdpi"/>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" density="hdpi"/>
