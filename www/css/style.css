@@ -50,6 +50,14 @@ p.player2 {
 	/*background-color: lightgrey;*/
 }
 
+.local {
+	color: #73af39;
+}
+
+.visitor {
+	color: #439b9a;
+}
+
 .separator {
 	width: 10%;
 	/*background-color: grey;*/

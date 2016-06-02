@@ -1,6 +1,6 @@
 angular.module('ionicApp')
 
-.controller("ScoreController", function($scope, $sessionStorage) {
+.controller("ScoreController", function($scope, $rootScope, $sessionStorage) {
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
 
@@ -60,5 +60,13 @@ angular.module('ionicApp')
 		$scope.$storage.scoreLocal = 0;
 		$scope.$storage.scoreVisitor = 0;
     }
+
+    $rootScope.$on('$cordovaFlic:flicButtonClick', function (event, data) {
+    	if (data.color === 'green') {
+    		$scope.localGoal();
+    	} else {
+    		$scope.visitorGoal();
+    	}
+    });
 
 })

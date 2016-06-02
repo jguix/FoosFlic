@@ -3,9 +3,7 @@ angular.module('ionicApp')
 .controller("FlicController", function($scope, $sessionStorage, $rootScope, $ionicPlatform, $timeout, $cordovaFlic) {
 	// Hook session storage to the scope
 	$scope.$storage = $sessionStorage;
-  $scope.status = 'Waiting for Ionic Platform ready...';
-
-	console.log("FlicController");
+  $scope.status = 'Esperando evento platform ready...';
 
 	$ionicPlatform.ready(function() {
 
@@ -13,14 +11,13 @@ angular.module('ionicApp')
     var appSecret = "f17c4448-093b-4ba8-951a-bb40113b1900";
     var appName = "Table Football";
 
-    $scope.status = 'Initiating flic...';
-    console.log("Initiating flic...");
+    $scope.status = 'Iniciando flic...';
     $scope.buttons = [];
 
     $scope.grabButton = function() {
-      $scope.status = 'Grabbing button...';
+      $scope.status = 'Obteniendo boton...';
       $cordovaFlic.grabButton().then(function(button) {
-        $scope.status = 'Grabbed a button.';
+        $scope.status = 'Boton obtenido.';
         $scope.buttons.push(button);
       }, function(error) {
         $scope.status = 'GrabButton error: ' + error;
@@ -28,10 +25,10 @@ angular.module('ionicApp')
     }
 
     $cordovaFlic.init(appId, appSecret, appName).then(function(result) {
-      $scope.status = 'Flic init success.\nGetting known buttons...';
+      $scope.status = 'Flic init OK.\nObteniendo botones conocidos...';
 
         $cordovaFlic.getKnownButtons().then(function(buttons) {
-          $scope.status = 'Got ' + (buttons.length > 0 ? buttons.length : 'no') + ' buttons.';
+          $scope.status = 'Obtenidos ' + (buttons.length > 0 ? buttons.length : '0') + ' botones.';
           buttons.forEach(function(button) {
             $scope.buttons.push(button);
           });
