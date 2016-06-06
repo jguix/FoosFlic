@@ -12,7 +12,13 @@ angular.module('ionicApp')
 		$scope.$storage.players[id].goalsFor = 0;
 		$scope.$storage.players[id].goalsAgainst = 0;
 		// Add player to queue
-		$scope.$storage.queue.push($scope.$storage.players[id]);
+		if ($scope.$storage.queue.length <= 4) {
+			// Add to end of the queue
+			$scope.$storage.queue.push($scope.$storage.players[id]);
+		} else {
+			// Add to 5th place of the queue
+			$scope.$storage.queue.splice(4, 0, $scope.$storage.players[id]);
+		}
 
 		$state.go('app.queue.show');
 	}
