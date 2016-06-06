@@ -96,3 +96,11 @@ p.player2 {
 .item-col {
   flex: 1;
 }
+
+.cancelButton {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 10px;
+}

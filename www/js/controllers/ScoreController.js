@@ -3,8 +3,11 @@ angular.module('ionicApp')
 .controller("ScoreController", function($scope, $rootScope, $sessionStorage) {
     // Hook session storage to the scope
     $scope.$storage = $sessionStorage;
+    var cancelState;
 
     $scope.localGoal = function() {
+    	// Save state just in case someone press the cancel button
+    	saveState();
     	// Update score
     	$scope.$storage.scoreLocal += 1;
     	// Update players' stats
@@ -27,6 +30,8 @@ angular.module('ionicApp')
     }
 
     $scope.visitorGoal = function() {
+    	// Save state just in case someone press the cancel button
+    	saveState();
     	// Update score
     	$scope.$storage.scoreVisitor += 1;
     	// Update players' stats
@@ -46,6 +51,12 @@ angular.module('ionicApp')
     		// Reset scores
     		resetScores();
     	}
+    }
+
+    $scope.cancel = function() {
+    	console.log("Cancelar");
+    	// Restore last state
+    	restoreState();
     }
 
     var localWon = function() {
@@ -68,6 +79,21 @@ angular.module('ionicApp')
     var resetScores = function () {
 		$scope.$storage.scoreLocal = 0;
 		$scope.$storage.scoreVisitor = 0;
+    }
+
+    var saveState = function() {
+    	$scope.$storage.backup = {};
+    	$scope.$storage.backup.scoreLocal = $scope.$storage.scoreLocal;
+    	$scope.$storage.backup.scoreVisitor = $scope.$storage.scoreVisitor;
+    	$scope.$storage.backup.queue = angular.copy($scope.$storage.queue);
+    	$scope.$storage.backup.players = angular.copy($scope.$storage.players);
+    }
+
+    var restoreState = function() {
+    	$scope.$storage.scoreLocal = $scope.$storage.backup.scoreLocal;
+    	$scope.$storage.scoreVisitor = $scope.$storage.backup.scoreVisitor;
+    	$scope.$storage.queue = angular.copy($scope.$storage.backup.queue);
+    	$scope.$storage.players = angular.copy($scope.$storage.backup.players);
     }
 
     $rootScope.$on('$cordovaFlic:flicButtonClick', function (event, data) {

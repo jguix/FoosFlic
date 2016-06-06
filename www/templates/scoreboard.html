@@ -26,3 +26,6 @@
     <a class="football" ng-click="visitorGoal()"><img src="img/football.png"/></a>
   </div>
 </div>
+<div class="cancelButton" ng-if="$storage.queue.length >= 4">
+  <a class="button button-calm" ng-click="cancel()">Cancelar</a>
+</div>
